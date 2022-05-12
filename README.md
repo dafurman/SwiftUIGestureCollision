@@ -4,11 +4,10 @@ This project demonstrates a bug - or at least unexpected behavior - that occurs 
 
 Given the following view structure:
 
--- UIWindow
-  -- UIHostingController
-    -- A SwiftUI View as `UIHostingController.view`
-      -- A SwiftUI `Button`
-      -- A UIView with a gesture recogznier, added as a subview to `UIHostingController.view`
+UIHostingController </br>
+-- A SwiftUI View as `UIHostingController.view` </br>
+---- A SwiftUI `Button` </br>
+---- A UIView with a gesture recogznier, added as a subview to `UIHostingController.view` </br>
     
 If the SwiftUI Button and the UIView are overlaid, a tap on the UIView will be recognized, but also pass through to the SwiftUI Button, triggering a tap on it as well.
 
