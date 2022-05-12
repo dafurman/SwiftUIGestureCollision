@@ -3,6 +3,8 @@ import UIKit
 
 class InteractableUIKitView: UIView {
 
+    static var idealHeight: CGFloat = 100
+
     private lazy var gestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(onTap))
 
     init() {

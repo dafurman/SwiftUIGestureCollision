@@ -9,14 +9,26 @@ import SwiftUI
 import UIKit
 
 struct ContentView: View {
+
+    /// Try changing this to `true` to demonstrate a workaround.
+    private let usesTouchAbsorbingView = false
+
     var body: some View {
-        VStack {
-            Spacer()
-            button
+        ZStack {
+            VStack {
+                Spacer()
+                button
+            }
+            if usesTouchAbsorbingView {
+                VStack {
+                    Spacer()
+                    touchAbsorbingView.frame(height: InteractableUIKitView.idealHeight)
+                }
+            }
         }
     }
 
-    var button: some View {
+    private var button: some View {
         Button {
             print("SwiftUI")
         } label: {
@@ -24,6 +36,11 @@ struct ContentView: View {
                 .padding()
         }
         .background(.yellow)
+    }
+
+    private var touchAbsorbingView: some View {
+        Color.clear
+            .contentShape(Rectangle())
     }
 }
 
